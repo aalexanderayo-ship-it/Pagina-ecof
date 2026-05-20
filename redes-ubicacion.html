@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECOF | Redes y ubicación</title>
+    <meta name="description" content="Redes sociales, comentarios de clientes y ubicación de ECOF en Conocoto, Juan Montalvo y Alfaro.">
+    <link rel="icon" href="assets/ecof-favicon.png?v=3" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="content-page location-route">
+    <header class="site-header" id="inicio">
+      <a class="brand" href="index.html" aria-label="ECOF inicio">
+        <img src="assets/ecof-logo.png" alt="Logo ECOF">
+      </a>
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="quienes-somos.html">Quiénes somos</a>
+        <a href="catalogo.html#catalogo">Catálogo</a>
+        <a href="empresas.html">Empresas</a>
+        <a class="is-active" href="redes-ubicacion.html">Redes y ubicación</a>
+      </nav>
+      <button class="editor-link" id="headerEditorButton" type="button" hidden aria-hidden="true">Modo admin</button>
+      <a class="header-cta js-whatsapp" href="#" target="_blank" rel="noopener">Cotizar WhatsApp</a>
+    </header>
+
+    <main>
+      <section class="page-hero location-page-hero">
+        <div>
+          <p class="eyebrow">Redes y ubicación</p>
+          <h1>Encuentra ECOF y mira trabajos reales.</h1>
+          <p>Síguenos, revisa comentarios de clientes y llega a nuestro punto de atención en Conocoto.</p>
+          <div class="hero-actions">
+            <a class="primary-button" href="#ubicacion">Cómo llegar</a>
+            <a class="secondary-button dark js-whatsapp" href="#" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="social-section" id="redes">
+        <div>
+          <p class="eyebrow">Redes ECOF</p>
+          <h2>Síguenos y mira trabajos reales.</h2>
+        </div>
+        <div class="social-links">
+          <a id="instagramLink" href="#" target="_blank" rel="noopener">Instagram</a>
+          <a id="tiktokLink" href="#" target="_blank" rel="noopener">TikTok</a>
+          <a id="facebookLink" href="#" target="_blank" rel="noopener">Facebook</a>
+        </div>
+      </section>
+
+      <section class="section location-section" id="ubicacion">
+        <div class="section-heading">
+          <p class="eyebrow">Ubicación ECOF</p>
+          <h2>0990707544</h2>
+          <p>Conocoto, calle Juan Montalvo y Alfaro, a lado de la Ferretería Gómez.</p>
+          <div class="location-social-inline">
+            <a id="locationInstagramLink" href="#" target="_blank" rel="noopener">Instagram</a>
+            <a id="locationTiktokLink" href="#" target="_blank" rel="noopener">TikTok</a>
+            <a id="locationFacebookLink" href="#" target="_blank" rel="noopener">Facebook</a>
+          </div>
+        </div>
+        <div class="location-grid">
+          <a class="map-card" href="https://www.google.com/maps/search/?api=1&query=Conocoto%20Juan%20Montalvo%20y%20Alfaro%20Ferreteria%20Gomez" target="_blank" rel="noopener">
+            <strong>Ver ubicación en Google Maps</strong>
+            <span>Conocoto, Juan Montalvo y Alfaro</span>
+          </a>
+          <div class="facade-card">
+            <img id="facadeImage" src="assets/ecof-logo.png" alt="Fachada ECOF">
+            <p>Foto de fachada editable desde modo admin cuando tengas la imagen lista.</p>
+          </div>
+        </div>
+      </section>
+      <section class="section gallery-section" id="clientes">
+        <div class="section-heading">
+          <p class="eyebrow">Clientes ECOF</p>
+          <h2>Comentarios y referencias.</h2>
+          <p id="reviewCounter">0 comentarios aprobados</p>
+        </div>
+        <div class="reviews-layout">
+          <div class="client-grid" id="reviewCarousel"></div>
+          <form class="quote-form" id="reviewForm">
+            <input id="reviewName" placeholder="Nombre o negocio" required>
+            <select id="reviewRating" required>
+              <option value="5">5 estrellas</option>
+              <option value="4">4 estrellas</option>
+              <option value="3">3 estrellas</option>
+            </select>
+            <textarea id="reviewComment" placeholder="Cuéntanos tu experiencia con ECOF" required></textarea>
+            <button class="primary-button" type="submit">Enviar comentario</button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <a class="catalog-float-link" href="catalogo.html#catalogo">Catálogo</a>
+
+    <footer class="site-footer">
+      <div><strong>ECOF</strong><p>Redes, ubicación y atención directa.</p></div>
+      <div><a href="tel:+593990707544">0990707544</a><a href="mailto:ecof0117@gmail.com">ecof0117@gmail.com</a></div>
+    </footer>
+    <script type="module" src="script.js"></script>
+  </body>
+</html>

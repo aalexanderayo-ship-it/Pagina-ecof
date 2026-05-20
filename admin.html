@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ECOF | Admin catálogo Firebase</title>
+    <meta name="robots" content="noindex">
+    <link rel="icon" href="assets/ecof-favicon.png?v=3" type="image/png">
+    <link rel="icon" href="assets/ecof-favicon.svg?v=3" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="admin-page">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Volver a ECOF">
+        <img src="assets/ecof-logo.png" alt="Logo ECOF">
+      </a>
+      <nav class="nav-links" aria-label="Admin ECOF">
+        <a href="index.html">Ver catálogo público</a>
+      </nav>
+    </header>
+
+    <main class="section admin-firestore-section">
+      <section class="admin-login-card" id="adminLogin">
+        <p class="eyebrow">Acceso temporal</p>
+        <h1>Admin catálogo ECOF</h1>
+        <p>Protección local temporal. En producción se debe usar Firebase Authentication y reglas seguras.</p>
+        <form id="adminLoginForm" class="admin-login-form">
+          <label>Clave temporal<input id="adminAccessKey" type="password" autocomplete="current-password" required></label>
+          <button class="primary-button" type="submit">Entrar al admin</button>
+        </form>
+      </section>
+
+      <section class="admin-workspace" id="adminWorkspace" hidden>
+        <div class="section-heading compact">
+          <p class="eyebrow">Firestore / productos</p>
+          <h1>Editor completo de productos ECOF</h1>
+          <p>Agrega, edita, activa, destaca, ordena, elimina y completa todos los campos que usa el catálogo público.</p>
+        </div>
+
+        <div class="admin-status" id="adminStatus">Conectando con Firebase...</div>
+
+        <div class="admin-firestore-layout">
+          <aside class="admin-products-panel">
+            <div class="form-actions">
+              <button class="primary-button" id="newFirestoreProduct" type="button">Producto nuevo</button>
+              <button class="secondary-button dark" id="refreshFirestoreProducts" type="button">Actualizar lista</button>
+            </div>
+            <div class="editor-list firestore-product-list" id="firestoreProductList"></div>
+          </aside>
+
+          <form class="editor-form firestore-product-form" id="firestoreProductForm">
+            <input type="hidden" id="firestoreDocId">
+
+            <label>Nombre<input id="fsNombre" required></label>
+            <label>Código<input id="fsCodigo"></label>
+            <label>Precio numérico<input id="fsPrecio" type="number" min="0" step="0.01"></label>
+            <label>Orden<input id="fsOrden" type="number" step="1" value="0"></label>
+
+            <label>Categoría interna<input id="fsCategoria" placeholder="Fundas, Cajas, Envoltura"></label>
+            <label>Familia<select id="fsFamilia"></select></label>
+            <label>Grupo / subcategoría<input id="fsSubcategoria" placeholder="Fundas shopping, cajas pizza, papel antigrasa"></label>
+            <label>Medidas<input id="fsMedidas" placeholder="22 x 14 x 8 cm"></label>
+
+            <label>Material<input id="fsMaterial" placeholder="Papel kraft, cartulina blanca, papel antigrasa"></label>
+            <label>Paquete<input id="fsPaquete" placeholder="100 unidades"></label>
+            <label>Precio por paquete<input id="fsPrecioPaquete" placeholder="$35,00 o A cotizar"></label>
+            <label>Precio por unidad<input id="fsPrecioUnidad" placeholder="$0,35 c/u o A cotizar"></label>
+            <label class="wide-field">Precios por cantidad<textarea id="fsPreciosCantidad" placeholder="100=0.35&#10;300=0.30&#10;500=0.27&#10;1000=0.21"></textarea></label>
+
+            <label>Imagen base URL<input id="fsImagen" placeholder="https://... o assets/catalogo/imagen.jpg"></label>
+            <label>Foto miniatura exterior<input id="fsImagenMiniatura" placeholder="Imagen que se ve en la tarjeta"></label>
+            <label>Foto principal al abrir<input id="fsImagenPrincipal" placeholder="Imagen grande del modal"></label>
+            <label>Subir imagen<input id="fsImageFile" type="file" accept="image/*"></label>
+            <p class="editor-file-status wide-field" id="fsImageFileName">Ningún archivo cargado.</p>
+
+            <label class="wide-field">Galería del producto<textarea id="fsGaleria" placeholder="Máximo 3 imágenes. Una URL por línea. Puedes pegar links de Drive en el orden que quieres mostrar"></textarea></label>
+            <div class="editor-gallery-manager wide-field" id="fsGalleryManager"></div>
+            <label class="wide-field">Video YouTube, siempre al final<input id="fsVideoYoutube" placeholder="https://www.youtube.com/watch?v=..."></label>
+
+            <label class="wide-field">Descripción<textarea id="fsDescripcion"></textarea></label>
+            <label>Etiquetas<input id="fsEtiquetas" placeholder="Personalizable, Para alimentos, Más vendido"></label>
+            <label>Uso recomendado<input id="fsUso" placeholder="Restaurantes, Cafeterías, Panaderías"></label>
+
+            <label class="check-field"><input id="fsPersonalizable" type="checkbox" checked> Producto personalizable</label>
+            <label class="check-field"><input id="fsActivo" type="checkbox" checked> Producto activo</label>
+            <label class="check-field"><input id="fsDestacado" type="checkbox"> Producto destacado</label>
+
+            <div class="form-actions">
+              <button class="primary-button" type="submit">Guardar en Firebase</button>
+              <button class="secondary-button dark" id="toggleActiveProduct" type="button">Activar / desactivar</button>
+              <button class="danger-button" id="deleteFirestoreProduct" type="button">Borrar producto</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="admin.js"></script>
+  </body>
+</html>
